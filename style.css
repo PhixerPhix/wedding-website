@@ -1,19 +1,278 @@
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Pete &<br>Ben</h1>
-            <p class="subtitle">Are Getting Married.</p>
-            <p class="date">19 . 06 . 2027</p>
-            <div class="countdown-box">
-                <div id="countdown">Loading countdown...</div>
-            </div>
-            <div>
-                <a href="#rsvp" class="btn">RSVP HERE</a>
-            </div>
-        </div>
-        <!-- Right side graphic grid element panel -->
-        <div class="hero-graphic">
-            <div class="graphic-top"></div>
-            <div class="graphic-bottom"></div>
-        </div>
-    </header>
+/* --- BAUHAUS RESET & DESIGN SYSTEM --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-cream: #f4f1ea;     /* Classic vintage paper backdrop */
+    --bh-black: #1a1a1a;     /* Stark modernist ink */
+    --bh-red: #d63c2e;       /* Deep primary red */
+    --bh-blue: #2b5c8f;      /* Slate Bauhaus blue */
+    --bh-yellow: #e4a834;    /* Ochre yellow accent */
+    --border-thick: 4px solid #1a1a1a;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--bh-black);
+    overflow-x: hidden;
+}
+
+/* --- HERO BLOCK (Asymmetric & Grid-Based) --- */
+.hero {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: var(--border-thick);
+}
+
+/* Left side of screen holding text */
+.hero-content {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-right: var(--border-thick);
+    background-color: var(--bg-cream);
+    position: relative;
+}
+
+/* Large Bauhaus watermark text hidden in background overlay */
+.hero-content::before {
+    content: "P + B";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Syne', sans-serif;
+    font-size: 12rem;
+    font-weight: 800;
+    color: rgba(26, 26, 26, 0.03); /* Extremely faint structural typography */
+    line-height: 0.8;
+    pointer-events: none;
+}
+
+.hero-content h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--bh-black);
+    margin-bottom: 20px;
+    word-break: break-word;
+    z-index: 2;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.date {
+    font-size: 1.2rem;
+    padding: 10px;
+    border: 2px solid var(--bh-black);
+    display: inline-block;
+    width: max-content;
+    margin-bottom: 40px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Right side of screen containing geometric composition */
+.hero-graphic {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    background-color: var(--bh-black);
+}
+
+.graphic-top {
+    background-color: var(--bh-red);
+    border-bottom: var(--border-thick);
+    position: relative;
+}
+
+/* Large Bauhaus circle icon layer */
+.graphic-top::before {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 40px;
+    width: 150px;
+    height: 150px;
+    background-color: var(--bh-yellow);
+    border-radius: 50%;
+    border: var(--border-thick);
+    z-index: 2;
+}
+
+.graphic-bottom {
+    background-color: var(--bh-blue);
+}
+
+/* --- COUNTDOWN & INTERACTIVE ELEMENTS --- */
+.countdown-box {
+    border-top: var(--border-thick);
+    padding-top: 20px;
+    margin-bottom: 30px;
+    z-index: 2;
+}
+
+#countdown {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--bh-red);
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 15px 40px;
+    background-color: var(--bh-black);
+    color: var(--bg-cream);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--bh-black);
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+.btn:hover {
+    background-color: var(--bh-red);
+    color: white;
+}
+
+/* --- DETAILS SECTION --- */
+.details {
+    padding: 100px 60px;
+    border-bottom: var(--border-thick);
+}
+
+h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0;
+    border: var(--border-thick);
+}
+
+.card {
+    background: var(--bg-cream);
+    padding: 40px;
+    text-align: left;
+}
+
+.card:first-child {
+    border-right: var(--border-thick);
+}
+
+.card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--bh-blue);
+}
+
+.card p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* --- RSVP SECTIONS --- */
+.rsvp-section {
+    padding: 100px 60px;
+    background-color: var(--bh-yellow);
+}
+
+.rsvp-form {
+    max-width: 600px;
+    margin-top: 40px;
+    background: var(--bg-cream);
+    padding: 50px;
+    border: var(--border-thick);
+    box-shadow: 15px 15px 0px var(--bh-black); /* Flat architectural hard shadow */
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 2px solid var(--bh-black);
+    background-color: var(--bg-cream);
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 0; /* Bauhaus completely eliminates rounded corners */
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    background-color: white;
+    border-color: var(--bh-red);
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--bh-black);
+    color: white;
+    font-size: 1.1rem;
+}
+
+/* --- MAP SCALING CONTROLS --- */
+.map-container {
+    margin-top: 30px;
+    border: 2px solid var(--bh-black);
+    position: relative;
+    padding-bottom: 60%;
+    height: 0;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* --- RESPONSIVE LAYOUT (Mobile adjustments) --- */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+    .hero-graphic {
+        display: none; /* Hides graphic block on small screens to prioritize text layout */
+    }
+    .hero-content {
+        padding: 30px;
+    }
+    .details, .rsvp-section {
+        padding: 60px 20px;
+    }
+    .card:first-child {
+        border-right: none;
+        border-bottom: var(--border-thick);
+    }
+}
