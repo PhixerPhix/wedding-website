@@ -1,4 +1,4 @@
-// Set your wedding target date here (Year, Month Index 0-11, Day, Hour, Minute)
+
 const weddingDate = new Date(2026, 9, 3, 15, 0, 0).getTime();
 
 function updateCountdown() {
