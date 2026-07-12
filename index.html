@@ -4,45 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Wedding | Pete & Ben</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <!-- Loading 'Syne' for bold headers and 'Space Grotesk' for body text -->
-    <link href="https://googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com/css2?family=Space+Grotesk:wght=400;600&family=Syne:wght=700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <h1>Pete & Ben</h1>
-            <p class="subtitle">Are Getting Married!</p>
-            <p class="date">Saturday, 3rd October 2026</p>
-            <div id="countdown" class="countdown">Loading countdown...</div>
-            <a href="#rsvp" class="btn">RSVP Now</a>
+            <h1>Pete &<br>Ben</h1>
+            <p class="subtitle">Are Getting Married.</p>
+            <p class="date">19 . 06 . 2027</p>
+            <div class="countdown-box">
+                <div id="countdown">Loading countdown...</div>
+            </div>
+            <div>
+                <a href="#rsvp" class="btn">RSVP HERE</a>
+            </div>
+        </div>
+        <!-- Right side graphic grid element panel -->
+        <div class="hero-graphic">
+            <div class="graphic-top"></div>
+            <div class="graphic-bottom"></div>
         </div>
     </header>
 
-   <!-- Details Section -->
+    <!-- Details Section -->
     <section class="details">
         <h2>The Big Day</h2>
         <div class="grid">
             <div class="card">
                 <h3>When</h3>
-                <p><strong>Arrive:</strong> 3:00 PM</p>
+                <p><strong>Ceremony:</strong> 2:00 PM</p>
                 <p><strong>Reception:</strong> 4:30 PM until late</p>
             </div>
             <div class="card">
                 <h3>Where</h3>
-                <p>Cote House</p>
-                <p>Cote Dr, Bristol BS9 3UR</p>
-                <p><em>Dress Code: Festival Attire</em></p>
+                <p>The Grand Pavilion</p>
+                <p>123 Ocean Drive, Coastal Town</p>
+                <p><em>Dress Code: Formal Attire</em></p>
                 
                 <!-- Map Container -->
                 <div class="map-container">
                     <!-- PASTE YOUR COPIED GOOGLE MAPS IFRAME CODE DIRECTLY BELOW THIS LINE -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.117143008122!2d-2.6204486!3d51.481919399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718df4f33c9e81%3A0xca238de44c686ad5!2sCote%20House%2C%20Cote%20Dr%2C%20Bristol%20BS9%203UR!5e1!3m2!1sen!2suk!4v1783881203101!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <iframe src="https://google.com..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -51,18 +58,17 @@
     <!-- RSVP Section -->
     <section id="rsvp" class="rsvp-section">
         <h2>Will You Attend?</h2>
-        <p>Please reply by 3rd October 2026</p>
+        <p>Please reply by 1st May 2027</p>
         
-        <!-- Replace YOUR_FORM_ID with your Formspree ID after signing up -->
-        <form action="https://formspree.io/f/xdaqnrkr" method="POST" class="rsvp-form">
+        <form action="https://formspree.io" method="POST" class="rsvp-form">
             <label for="name">Full Name(s)</label>
             <input type="text" id="name" name="name" required placeholder="e.g. Jane and John Doe">
 
             <label for="attendance">Attendance</label>
             <select id="attendance" name="attendance" required>
                 <option value="" disabled selected>Select an option</option>
-                <option value="joyfully-accepts">Woop Woop! (yes)</option>
-                <option value="regretfully-declines">Womp Womp (no)</option>
+                <option value="joyfully-accepts">Joyfully Accepts</option>
+                <option value="regretfully-declines">Regretfully Declines</option>
             </select>
 
             <label for="dietary">Dietary Requirements / Allergies</label>
