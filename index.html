@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding | Alex & Taylor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Pete & Ben</h1>
+            <p class="subtitle">Are Getting Married!</p>
+            <p class="date">Saturday, 3rd October 2026</p>
+            <div id="countdown" class="countdown">Loading countdown...</div>
+            <a href="#rsvp" class="btn">RSVP Now</a>
+        </div>
+    </header>
+
+    <!-- Details Section -->
+    <section class="details">
+        <h2>The Big Day</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>When</h3>
+                <p><strong>Ceremony:</strong> 2:00 PM</p>
+                <p><strong>Reception:</strong> 4:30 PM until late</p>
+            </div>
+            <div class="card">
+                <h3>Where</h3>
+                <p>The Grand Pavilion</p>
+                <p>123 Ocean Drive, Coastal Town</p>
+                <p><em>Dress Code: Formal Attire</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp-section">
+        <h2>Will You Attend?</h2>
+        <p>Please reply by 3rdd October 2026</p>
+        
+        <!-- Replace YOUR_FORM_ID with your Formspree ID after signing up -->
+        <form action="https://formspree.io/f/xdaqnrkr" method="POST" class="rsvp-form">
+            <label for="name">Full Name(s)</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. Jane and John Doe">
+
+            <label for="attendance">Attendance</label>
+            <select id="attendance" name="attendance" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="joyfully-accepts">Joyfully Accepts</option>
+                <option value="regretfully-declines">Regretfully Declines</option>
+            </select>
+
+            <label for="dietary">Dietary Requirements / Allergies</label>
+            <textarea id="dietary" name="dietary" rows="3" placeholder="None, Vegetarian, Nut allergy, etc."></textarea>
+
+            <button type="submit" class="btn submit-btn">Submit RSVP</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
