@@ -31,3 +31,54 @@ function updateCountdown() {
 // Run the script instantly on load and refresh every 1 second
 updateCountdown();
 const countdownInterval = setInterval(updateCountdown, 1000);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".rsvp-form");
+    
+    if (form) {
+        form.addEventListener("submit", (event) => {
+            const nameInput = document.getElementById("name");
+            const attendanceSelect = document.getElementById("attendance");
+            let isValid = true;
+
+            // Remove any existing custom error messages first
+            document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+            // 1. Validate Name Field
+            if (!nameInput.value.trim()) {
+                showError(nameInput, "We need your name to save your spot!");
+                isValid = false;
+            }
+
+            // 2. Validate Attendance Dropdown
+            if (!attendanceSelect.value) {
+                showError(attendanceSelect, "Please let us know if you can make it!");
+                isValid = false;
+            }
+
+            // If any validation fails, stop the form from sending to Formspree
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    }
+});
+
+// Helper function to create striking Bauhaus error text
+function showError(element, message) {
+    const error = document.createElement("div");
+    error.className = "error-message";
+    error.innerText = message;
+    
+    // Style the error inline or move to CSS
+    error.style.color = "var(--bh-red)";
+    error.style.fontFamily = "'Syne', sans-serif";
+    error.style.fontWeight = "800";
+    error.style.textTransform = "uppercase";
+    error.style.fontSize = "0.85rem";
+    error.style.marginTop = "-15px";
+    error.style.marginBottom = "20px";
+    
+    element.insertAdjacentElement("afterend", error);
+    element.style.borderColor = "var(--bh-red)";
+}
