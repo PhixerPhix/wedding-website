@@ -190,6 +190,14 @@ del {
     background: var(--bg-cream);
     padding: 40px;
     text-align: left;
+    display: flex;         /* Added for height alignment */
+    flex-direction: column; /* Keeps card content stacked vertically */
+    height: 100%;          /* Forces matching height container bounds */
+}
+
+/* New sub-rule to anchor your map to the very bottom of the Where card */
+.card .map-container {
+    margin-top: auto; 
 }
 
 .card:first-child {
