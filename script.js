@@ -36,41 +36,69 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".rsvp-form");
     
     if (form) {
-        form.addEventListener("submit", (event) => {
+        form.addEventListener("submit", async (event) => {
+            // Prevent the default browser redirect to Formspree
+            event.preventDefault(); 
+
             const nameInput = document.getElementById("name");
             const attendanceSelect = document.getElementById("attendance");
             let isValid = true;
 
-            // Remove any existing custom error messages first
+            // Remove any existing error messages
             document.querySelectorAll(".error-message").forEach(el => el.remove());
 
-            // 1. Validate Name Field
+            // 1. Validate Name
             if (!nameInput.value.trim()) {
                 showError(nameInput, "We need your name to save your spot!");
                 isValid = false;
             }
 
-            // 2. Validate Attendance Dropdown
+            // 2. Validate Attendance
             if (!attendanceSelect.value) {
                 showError(attendanceSelect, "Please let us know if you can make it!");
                 isValid = false;
             }
 
-            // If any validation fails, stop the form from sending to Formspree
-            if (!isValid) {
-                event.preventDefault();
+            // Stop execution if form validation fails
+            if (!isValid) return;
+
+            // 3. Send data to Formspree in the background
+            const data = new FormData(form);
+            const submitButton = form.querySelector(".submit-btn");
+            submitButton.innerText = "SENDING...";
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success! Redirect directly to your custom page
+                    window.location.href = "thanks.html";
+                } else {
+                    alert("Oops! There was a problem submitting your RSVP. Please try again.");
+                    submitButton.innerText = "SUBMIT RSVP";
+                    submitButton.disabled = false;
+                }
+            } catch (error) {
+                alert("Network error. Please check your connection and try again.");
+                submitButton.innerText = "SUBMIT RSVP";
+                submitButton.disabled = false;
             }
         });
     }
 });
 
-// Helper function to create striking Bauhaus error text
 function showError(element, message) {
     const error = document.createElement("div");
     error.className = "error-message";
     error.innerText = message;
     
-    // Style the error inline or move to CSS
     error.style.color = "var(--bh-red)";
     error.style.fontFamily = "'Syne', sans-serif";
     error.style.fontWeight = "800";
