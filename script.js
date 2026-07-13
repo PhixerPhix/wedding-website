@@ -88,16 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
 
-                if (response.ok) {
-                // Forces the browser to locate the folder root dynamically
-                window.location.assign(window.location.pathname.replace("index.html", "thanks.html"));
-                }
+            if (response.ok) {
+            // Forces the browser to locate the folder root dynamically
+            window.location.assign(window.location.pathname.replace("index.html", "thanks.html"));
+            }
 
-                } else {
-                    alert("Oops! There was a problem submitting your RSVP. Please try again.");
-                    submitButton.innerText = "SUBMIT RSVP";
-                    submitButton.disabled = false;
-                }
+            } else {
+                alert("Oops! There was a problem submitting your RSVP. Please try again.");
+                submitButton.innerText = "SUBMIT RSVP";
+                submitButton.disabled = false;
+            }
             } catch (error) {
                 alert("Network error. Please check your connection and try again.");
                 submitButton.innerText = "SUBMIT RSVP";
