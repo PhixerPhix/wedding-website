@@ -171,6 +171,14 @@ h2 {
     letter-spacing: -1px;
 }
 
+/* --- BAUHAUS STRIKETHROUGH STYLE --- */
+del {
+    color: var(--bh-black);              /* Keeps the word "Day" stark black */
+    text-decoration: line-through;       /* Activates the strikethrough line */
+    text-decoration-color: var(--bh-yellow); /* Uses your exact Ochre yellow accent variable */
+    text-decoration-thickness: 6px;      /* Thick line to match your bold typography */
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
