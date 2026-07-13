@@ -261,7 +261,7 @@ label {
     font-size: 0.9rem;
 }
 
-input[type="text"], select, textarea {
+input[type="text"], input[type="email"], select, textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 25px;
