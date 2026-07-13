@@ -200,10 +200,9 @@ del {
     margin-top: auto; 
 }
 
-.card:first-child {
+.card:not(:last-child) {
     border-right: var(--border-thick);
 }
-
 .card h3 {
     font-family: 'Syne', sans-serif;
     font-size: 2rem;
