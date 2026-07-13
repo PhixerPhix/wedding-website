@@ -329,20 +329,19 @@ input:focus, select:focus, textarea:focus {
 
 /* --- RESPONSIVE LAYOUT (Mobile adjustments) --- */
 @media (max-width: 768px) {
-    .hero {
-        grid-template-columns: 1fr;
+    .grid {
+        grid-template-columns: 1fr; /* Drops to a single vertical column on mobile */
     }
-    .hero-graphic {
-        display: none; 
+    
+    .card:nth-child(3) {
+        grid-column: span 1; /* Prevents stretching errors on mobile screens */
     }
-    .hero-content {
-        padding: 30px;
-    }
-    .details, .rsvp-section {
-        padding: 60px 20px;
+
+    /* Standardizes clean horizontal line dividers between all stacked mobile cards */
+    .card:first-child {
+        border-right: none;
     }
     .card:not(:last-child) {
-        border-right: none;
         border-bottom: var(--border-thick);
     }
 }
