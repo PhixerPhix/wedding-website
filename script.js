@@ -84,8 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 if (response.ok) {
-                    // Forces browser to locate the folder root dynamically
-                    window.location.assign(window.location.pathname.replace("index.html", "thanks.html"));
+                     // Works perfectly on both local computer drives and live web servers
+                window.location.href = "./thanks.html";
+                }
                 } else {
                     alert("Oops! There was a problem submitting your RSVP. Please try again.");
                     submitButton.innerText = "SUBMIT RSVP";
