@@ -267,7 +267,9 @@ input[type="text"], select, textarea {
     margin-bottom: 25px;
     border: 2px solid var(--bh-black);
     background-color: var(--bg-cream);
-    font-family: 'Space Grotesk', sans-serif; /* Input remains readable font for guests typing responses */
+    font-family: 'Syne', sans-serif; /* Changed from Space Grotesk */
+    font-weight: 700;                /* Makes user input look bold */
+    text-transform: uppercase;       /* Keeps input in block capitals */
     font-size: 1rem;
     border-radius: 0; 
 }
