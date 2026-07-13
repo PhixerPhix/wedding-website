@@ -1,6 +1,6 @@
 // Target Wedding Date: 19 June 2027 at 15:00 (3:00 PM)
 // Note: Month index 5 represents June in JavaScript (0 = Jan, 1 = Feb)
-const weddingDate = new Date(2027, 5, 19, 15, 0, 0).getTime();
+const weddingDate = new Date(2026, 9, 3, 15, 0, 0).getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
