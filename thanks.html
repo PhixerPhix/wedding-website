@@ -9,105 +9,135 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        /* Asymmetric Bauhaus Layout */
+        /* Main Layout Grid split into Art Panel and Content Panel */
         .thanks-page {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             height: 100vh;
             background-color: var(--bg-cream);
-        }
-
-        /* Left Side: Dynamic Geometric Composition */
-        .bauhaus-art-panel {
-            background-color: var(--bh-black);
-            position: relative;
-            display: grid;
-            grid-template-rows: 1.5fr 1fr;
-            border-right: var(--border-thick);
             overflow: hidden;
         }
 
-        .art-top-red {
+        /* --- COMPLEX ART PANEL LAYER --- */
+        .bauhaus-canvas {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            background-color: var(--bh-black);
+            border-right: var(--border-thick);
+            position: relative;
+        }
+
+        /* Left-side structural strip with mini alignment dot */
+        .canvas-strip-left {
+            background-color: var(--bg-cream);
+            border-right: var(--border-thick);
+            position: relative;
+        }
+
+        .canvas-strip-left::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: var(--bh-red);
+            border-radius: 50%;
+            border: 3px solid var(--bh-black);
+        }
+
+        /* Main asymmetric geometric art matrix */
+        .canvas-matrix-right {
+            display: grid;
+            grid-template-rows: 1.8fr 1fr;
+            position: relative;
+        }
+
+        .matrix-top-red {
             background-color: var(--bh-red);
             border-bottom: var(--border-thick);
             position: relative;
         }
 
-        /* Large Yellow Intersecting Circle */
-        .art-top-red::before {
+        /* Giant Overlapping Ochre Circle */
+        .matrix-top-red::before {
             content: '';
             position: absolute;
-            bottom: -75px;
-            right: 40px;
-            width: 200px;
-            height: 200px;
+            bottom: -90px;
+            left: -40px;
+            width: 260px;
+            height: 260px;
             background-color: var(--bh-yellow);
             border-radius: 50%;
             border: var(--border-thick);
             z-index: 3;
         }
 
-        /* Stark Diagonal Stripe Element */
-        .art-top-red::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 40px;
-            height: 100%;
-            background-color: var(--bg-cream);
-            border-right: var(--border-thick);
-        }
-
-        .art-bottom-blue {
+        .matrix-bottom-blue {
             background-color: var(--bh-blue);
             position: relative;
         }
 
-        /* Small Minimalist Alignment Dot */
-        .art-bottom-blue::after {
+        /* Stark floating black rectangle accent inside blue zone */
+        .matrix-bottom-blue::before {
             content: '';
             position: absolute;
             top: 40px;
-            left: 40px;
-            width: 30px;
-            height: 30px;
+            right: 40px;
+            width: 120px;
+            height: 60px;
             background-color: var(--bh-black);
-            border-radius: 50%;
+            border: 3px solid var(--bg-cream);
         }
 
-        /* Right Side: Centred Confirmation Text */
+        /* --- CONTENT PANEL WITH GRAPHIC FRAMING --- */
         .thanks-content-panel {
             padding: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            text-align: left;
             position: relative;
+            background-color: var(--bg-cream);
         }
 
-        /* Large Watermark Texture Behind Text */
-        .thanks-content-panel::before {
-            content: "DANKE";
+        /* Structural frame line running down the text side */
+        .thanks-content-panel::after {
+            content: '';
             position: absolute;
-            bottom: 40px;
-            right: 40px;
+            top: 0;
+            left: 40px;
+            width: var(--border-thick);
+            height: 100%;
+            background-color: var(--bh-black);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* Oversized Background Watermark Blueprint */
+        .thanks-watermark {
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
             font-family: 'Syne', sans-serif;
-            font-size: 10rem;
+            font-size: 11rem;
             font-weight: 800;
             color: rgba(26, 26, 26, 0.04);
-            letter-spacing: -5px;
+            letter-spacing: -6px;
+            line-height: 0.8;
             pointer-events: none;
+            text-transform: uppercase;
         }
 
         .thanks-content-panel h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-size: clamp(3.5rem, 6vw, 6rem);
             text-transform: uppercase;
             line-height: 0.85;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: var(--bh-black);
+            z-index: 2;
         }
 
         .thanks-content-panel p {
@@ -116,29 +146,55 @@
             font-weight: 700;
             text-transform: uppercase;
             color: var(--bh-red);
-            margin-bottom: 45px;
-            max-width: 450px;
-            line-height: 1.2;
+            margin-bottom: 50px;
+            max-width: 420px;
+            line-height: 1.3;
+            z-index: 2;
         }
 
-        /* Responsive Mobile Layout Override */
-        @media (max-width: 768px) {
+        .thanks-content-panel .btn {
+            z-index: 2;
+        }
+
+        /* --- RESPONSIVE MOBILE CONSTRAINTS --- */
+        @media (max-width: 900px) {
             .thanks-page {
                 grid-template-columns: 1fr;
+                height: auto;
+                overflow: y-visible;
             }
-            .bauhaus-art-panel {
-                height: 40vh;
+            .bauhaus-canvas {
+                grid-template-columns: 80px 1fr;
+                height: 45vh;
                 border-right: none;
                 border-bottom: var(--border-thick);
             }
-            .thanks-content-panel {
-                padding: 40px 25px;
-                height: 60vh;
+            .canvas-strip-left::after {
+                width: 25px;
+                height: 25px;
+                top: 30px;
             }
-            .art-top-red::before {
-                width: 130px;
-                height: 130px;
-                bottom: -45px;
+            .matrix-top-red::before {
+                width: 160px;
+                height: 160px;
+                bottom: -60px;
+                left: -20px;
+            }
+            .matrix-bottom-blue::before {
+                width: 80px;
+                height: 40px;
+                top: 20px;
+                right: 20px;
+            }
+            .thanks-content-panel {
+                padding: 60px 25px;
+                height: 55vh;
+            }
+            .thanks-content-panel::after {
+                left: 15px;
+            }
+            .thanks-watermark {
+                font-size: 7rem;
             }
         }
     </style>
@@ -147,17 +203,23 @@
 
     <div class="thanks-page">
         
-        <!-- Left Column: Geometric Graphic Work -->
-        <div class="bauhaus-art-panel">
-            <div class="art-top-red"></div>
-            <div class="art-bottom-blue"></div>
+        <!-- Left: Structural Multi-layered Art Canvas -->
+        <div class="bauhaus-canvas">
+            <div class="canvas-strip-left"></div>
+            <div class="canvas-matrix-right">
+                <div class="matrix-top-red"></div>
+                <div class="matrix-bottom-blue"></div>
+            </div>
         </div>
 
-        <!-- Right Column: Typographic Details -->
+        <!-- Right: Content & Floating Graphic Frame -->
         <main class="thanks-content-panel">
             <h1>Nice<br>One!</h1>
-            <p>You're the RSVP Champ. More detailed plans to follow.</p>
+            <p>Your RSVP has landed straight in our inbox.</p>
             <a href="index.html" class="btn">Back to Main Page</a>
+            
+            <!-- Layered watermark print -->
+            <div class="thanks-watermark">DANKE</div>
         </main>
 
     </div>
