@@ -9,47 +9,157 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        /* Specific layouts for the thank you container */
-        .thanks-container {
+        /* Asymmetric Bauhaus Layout */
+        .thanks-page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            text-align: center;
+            background-color: var(--bg-cream);
         }
-        .thanks-box {
-            background: var(--bg-cream);
-            padding: 60px;
+
+        /* Left Side: Dynamic Geometric Composition */
+        .bauhaus-art-panel {
+            background-color: var(--bh-black);
+            position: relative;
+            display: grid;
+            grid-template-rows: 1.5fr 1fr;
+            border-right: var(--border-thick);
+            overflow: hidden;
+        }
+
+        .art-top-red {
+            background-color: var(--bh-red);
+            border-bottom: var(--border-thick);
+            position: relative;
+        }
+
+        /* Large Yellow Intersecting Circle */
+        .art-top-red::before {
+            content: '';
+            position: absolute;
+            bottom: -75px;
+            right: 40px;
+            width: 200px;
+            height: 200px;
+            background-color: var(--bh-yellow);
+            border-radius: 50%;
             border: var(--border-thick);
-            box-shadow: 20px 20px 0px var(--bh-black);
-            max-width: 600px;
+            z-index: 3;
         }
-        .thanks-box h1 {
+
+        /* Stark Diagonal Stripe Element */
+        .art-top-red::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 100%;
+            background-color: var(--bg-cream);
+            border-right: var(--border-thick);
+        }
+
+        .art-bottom-blue {
+            background-color: var(--bh-blue);
+            position: relative;
+        }
+
+        /* Small Minimalist Alignment Dot */
+        .art-bottom-blue::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--bh-black);
+            border-radius: 50%;
+        }
+
+        /* Right Side: Centred Confirmation Text */
+        .thanks-content-panel {
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            position: relative;
+        }
+
+        /* Large Watermark Texture Behind Text */
+        .thanks-content-panel::before {
+            content: "DANKE";
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
             font-family: 'Syne', sans-serif;
-            font-size: 4rem;
+            font-size: 10rem;
+            font-weight: 800;
+            color: rgba(26, 26, 26, 0.04);
+            letter-spacing: -5px;
+            pointer-events: none;
+        }
+
+        .thanks-content-panel h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
             text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 20px;
-            color: var(--bh-red);
+            line-height: 0.85;
+            margin-bottom: 25px;
+            color: var(--bh-black);
         }
-        .thanks-box p {
+
+        .thanks-content-panel p {
             font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 40px;
+            color: var(--bh-red);
+            margin-bottom: 45px;
+            max-width: 450px;
+            line-height: 1.2;
+        }
+
+        /* Responsive Mobile Layout Override */
+        @media (max-width: 768px) {
+            .thanks-page {
+                grid-template-columns: 1fr;
+            }
+            .bauhaus-art-panel {
+                height: 40vh;
+                border-right: none;
+                border-bottom: var(--border-thick);
+            }
+            .thanks-content-panel {
+                padding: 40px 25px;
+                height: 60vh;
+            }
+            .art-top-red::before {
+                width: 130px;
+                height: 130px;
+                bottom: -45px;
+            }
         }
     </style>
 </head>
-<body style="background-color: var(--bh-blue);"> <!-- Blue background for visual contrast -->
+<body>
 
-    <div class="thanks-container">
-        <div class="thanks-box">
-            <h1>Nice One!</h1>
-            <p>Your RSVP has landed right in our inbox.</p>
-            <a href="index.html" class="btn">Back to Main Page</a>
+    <div class="thanks-page">
+        
+        <!-- Left Column: Geometric Graphic Work -->
+        <div class="bauhaus-art-panel">
+            <div class="art-top-red"></div>
+            <div class="art-bottom-blue"></div>
         </div>
+
+        <!-- Right Column: Typographic Details -->
+        <main class="thanks-content-panel">
+            <h1>Nice<br>One!</h1>
+            <p>You're the RSVP Champ. More detailed plans to follow.</p>
+            <a href="index.html" class="btn">Back to Main Page</a>
+        </main>
+
     </div>
 
 </body>
