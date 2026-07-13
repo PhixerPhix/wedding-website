@@ -35,16 +35,18 @@ const countdownInterval = setInterval(updateCountdown, 1000);
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".rsvp-form");
     
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".rsvp-form");
+    
     if (form) {
         form.addEventListener("submit", async (event) => {
-            // Prevent the default browser redirect to Formspree
             event.preventDefault(); 
 
             const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email"); // Grab email input field
             const attendanceSelect = document.getElementById("attendance");
             let isValid = true;
 
-            // Remove any existing error messages
             document.querySelectorAll(".error-message").forEach(el => el.remove());
 
             // 1. Validate Name
@@ -53,13 +55,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 isValid = false;
             }
 
-            // 2. Validate Attendance
+            // 2. Validate Email (NEW)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailInput.value.trim()) {
+                showError(emailInput, "Please leave an email address!");
+                isValid = false;
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                showError(emailInput, "That email format doesn't look quite right!");
+                isValid = false;
+            }
+
+            // 3. Validate Attendance
             if (!attendanceSelect.value) {
                 showError(attendanceSelect, "Please let us know if you can make it!");
                 isValid = false;
             }
 
-            // Stop execution if form validation fails
             if (!isValid) return;
 
             // 3. Send data to Formspree in the background
