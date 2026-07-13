@@ -89,8 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 if (response.ok) {
-                    // Success! Redirect directly to your custom page
-                    window.location.href = "thanks.html";
+                // Forces the browser to locate the folder root dynamically
+                window.location.assign(window.location.pathname.replace("index.html", "thanks.html"));
+                }
+
                 } else {
                     alert("Oops! There was a problem submitting your RSVP. Please try again.");
                     submitButton.innerText = "SUBMIT RSVP";
