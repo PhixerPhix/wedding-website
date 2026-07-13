@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".rsvp-form");
     
     if (form) {
-        form.addEventListener("submit", async (event) => {
+        form.addEventListener("submit", (event) => {
+            // Stop the form initially to run our validations
             event.preventDefault(); 
 
             const nameInput = document.getElementById("name");
@@ -66,40 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 isValid = false;
             }
 
+            // Stop execution if form validation fails
             if (!isValid) return;
 
-            // Send data to Formspree in the background
-            const data = new FormData(form);
+            // Changing button text visually before submission
             const submitButton = form.querySelector(".submit-btn");
             submitButton.innerText = "SENDING...";
             submitButton.disabled = true;
 
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                     // Works perfectly on both local computer drives and live web servers
-                window.location.href = "./thanks.html";
-                }
-                } else {
-                    alert("Oops! There was a problem submitting your RSVP. Please try again.");
-                    submitButton.innerText = "SUBMIT RSVP";
-                    submitButton.disabled = false;
-                }
-            } catch (error) {
-                alert("Network error. Please check your connection and try again.");
-                submitButton.innerText = "SUBMIT RSVP";
-                submitButton.disabled = false;
-            }
+            // Validation passed! Submit naturally via browser HTML flow
+            form.submit();
         });
     }
 });
+
 
 function showError(element, message) {
     const error = document.createElement("div");
