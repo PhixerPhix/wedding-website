@@ -49,7 +49,7 @@ body {
     font-family: 'Syne', sans-serif;
     font-size: 12rem;
     font-weight: 800;
-    color: rgba(26, 26, 26, 0.03); /* Extremely faint structural typography */
+    color: rgba(26, 26, 26, 0.03); 
     line-height: 0.8;
     pointer-events: none;
 }
@@ -66,21 +66,24 @@ body {
 }
 
 .subtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-family: 'Syne', sans-serif; /* Applied bold hero accent font */
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
     letter-spacing: -0.5px;
     margin-bottom: 20px;
     z-index: 2;
 }
 
 .date {
+    font-family: 'Syne', sans-serif; /* Applied bold hero accent font */
     font-size: 1.2rem;
-    padding: 10px;
+    padding: 10px 15px;
     border: 2px solid var(--bh-black);
     display: inline-block;
     width: max-content;
     margin-bottom: 40px;
-    font-weight: 600;
+    font-weight: 700;
     z-index: 2;
 }
 
@@ -124,8 +127,10 @@ body {
 }
 
 #countdown {
+    font-family: 'Syne', sans-serif; /* Shifted countdown tracker to bold layout */
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 800;
+    letter-spacing: 0.5px;
     color: var(--bh-red);
 }
 
@@ -136,7 +141,8 @@ body {
     background-color: var(--bh-black);
     color: var(--bg-cream);
     text-decoration: none;
-    font-weight: 600;
+    font-family: 'Syne', sans-serif; /* Swapped button label font */
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 2px solid var(--bh-black);
@@ -157,10 +163,12 @@ body {
 
 h2 {
     font-family: 'Syne', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     text-transform: uppercase;
     margin-bottom: 60px;
     position: relative;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
 .grid {
@@ -182,15 +190,33 @@ h2 {
 
 .card h3 {
     font-family: 'Syne', sans-serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: var(--bh-blue);
+    font-weight: 800;
 }
 
 .card p {
+    font-family: 'Syne', sans-serif; /* Upgraded detail content paragraphs to Syne font */
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase; /* Looks dramatically stronger in block capitals */
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.card p strong {
+    color: var(--bh-red); /* Highlights event labels in stark primary red */
+}
+
+.card p em {
+    font-style: normal;
+    color: var(--bh-yellow);
+    background-color: var(--bh-black);
+    padding: 3px 8px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 /* --- RSVP SECTIONS --- */
@@ -199,20 +225,32 @@ h2 {
     background-color: var(--bh-yellow);
 }
 
+.rsvp-section h2 {
+    font-family: 'Syne', sans-serif;
+}
+
+.rsvp-section p {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .rsvp-form {
     max-width: 600px;
     margin-top: 40px;
     background: var(--bg-cream);
     padding: 50px;
     border: var(--border-thick);
-    box-shadow: 15px 15px 0px var(--bh-black); /* Flat architectural hard shadow */
+    box-shadow: 15px 15px 0px var(--bh-black); 
 }
 
 label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
     display: block;
-    font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 8px;
+    font-size: 0.9rem;
 }
 
 input[type="text"], select, textarea {
@@ -221,9 +259,9 @@ input[type="text"], select, textarea {
     margin-bottom: 25px;
     border: 2px solid var(--bh-black);
     background-color: var(--bg-cream);
-    font-family: inherit;
+    font-family: 'Space Grotesk', sans-serif; /* Input remains readable font for guests typing responses */
     font-size: 1rem;
-    border-radius: 0; /* Bauhaus completely eliminates rounded corners */
+    border-radius: 0; 
 }
 
 input:focus, select:focus, textarea:focus {
@@ -263,7 +301,7 @@ input:focus, select:focus, textarea:focus {
         grid-template-columns: 1fr;
     }
     .hero-graphic {
-        display: none; /* Hides graphic block on small screens to prioritize text layout */
+        display: none; 
     }
     .hero-content {
         padding: 30px;
