@@ -181,9 +181,14 @@ del {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr; /* Forces exactly two columns side-by-side */
     gap: 0;
     border: var(--border-thick);
+}
+
+/* Forces the third card (What) to take up both columns on the second row */
+.card:nth-child(3) {
+    grid-column: span 2;
 }
 
 .card {
@@ -198,6 +203,16 @@ del {
 /* New sub-rule to anchor your map to the very bottom of the Where card */
 .card .map-container {
     margin-top: auto; 
+}
+
+/* Adds a vertical border line between the top 'When' and 'Where' cards only */
+.card:first-child {
+    border-right: var(--border-thick);
+}
+
+/* Adds a crisp horizontal border line separating the top row from the bottom 'What' card */
+.card:nth-child(1), .card:nth-child(2) {
+    border-bottom: var(--border-thick);
 }
 
 .card:not(:last-child) {
