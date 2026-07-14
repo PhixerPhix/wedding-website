@@ -320,7 +320,11 @@ input:focus, select:focus, textarea:focus {
         border-bottom: var(--border-thick);
     }
 }
-/* Bauhaus Link Styling - Updated to match your custom Blue variable */
+/* ==========================================================================
+   RESTORED DESIGN SYSTEM & TEXT STYLES (Paste at the very bottom)
+   ========================================================================== */
+
+/* 1. Bauhaus Link Styling */
 .card a {
     color: var(--bh-blue); 
     text-decoration: none;
@@ -334,7 +338,40 @@ input:focus, select:focus, textarea:focus {
     background-color: var(--bh-blue);
 }
 
-/* --- WHAT BOX INTERNAL LAYOUT & SUB-HEADERS --- */
+/* 2. Main Card Headers (When, Where, What) */
+.card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: var(--bh-blue);
+    font-weight: 800;
+}
+
+/* 3. Card Paragraph Texts */
+.card p {
+    font-family: 'Syne', sans-serif; 
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.card p strong {
+    color: var(--bh-red); 
+}
+
+.card p em {
+    font-style: normal;
+    color: var(--bh-yellow);
+    background-color: var(--bh-black);
+    padding: 3px 8px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* 4. What Box Internal Layout & Sub-Headers */
 .card-section {
     margin-bottom: 30px;
 }
@@ -357,7 +394,7 @@ input:focus, select:focus, textarea:focus {
 /* High-contrast list/shoutout text */
 .card .emphasis {
     font-weight: 800;
-    color: var(--bh-red); /* Pops text blocks out in vibrant primary red */
+    color: var(--bh-red); 
     margin: 12px 0;
 }
 
@@ -369,4 +406,3 @@ input:focus, select:focus, textarea:focus {
     border-bottom: 2px solid var(--bh-black);
     margin: 20px 0;
 }
-
