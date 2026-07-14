@@ -200,11 +200,6 @@ del {
     height: 100%;          /* Forces matching height container bounds */
 }
 
-/* New sub-rule to anchor your map to the very bottom of the Where card */
-.card .map-container {
-    margin-top: auto; 
-}
-
 /* Adds a vertical border line between the top 'When' and 'Where' cards only */
 .card:first-child {
     border-right: var(--border-thick);
@@ -307,24 +302,6 @@ input:focus, select:focus, textarea:focus {
     background-color: var(--bh-black);
     color: white;
     font-size: 1.1rem;
-}
-
-/* --- MAP SCALING CONTROLS --- */
-.map-container {
-    margin-top: 30px;
-    border: 2px solid var(--bh-black);
-    position: relative;
-    padding-bottom: 60%;
-    height: 0;
-    overflow: hidden;
-}
-
-.map-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
 }
 
 /* --- RESPONSIVE LAYOUT (Mobile adjustments) --- */
