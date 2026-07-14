@@ -304,22 +304,51 @@ input:focus, select:focus, textarea:focus {
 
 /* --- RESPONSIVE LAYOUT (Mobile adjustments) --- */
 @media (max-width: 768px) {
+    /* 1. Fix Hero section collapsing and text overflow */
+    .hero {
+        height: auto; /* Allows the container to expand naturally with the text */
+        grid-template-columns: 1fr; /* Stacks layout elements vertically */
+    }
+
+    .hero-content {
+        padding: 40px 20px;
+        border-right: none;
+        border-bottom: var(--border-thick); /* Creates a crisp boundary line above graphic */
+    }
+
+    /* 2. Scale the geometric artwork cleanly on small screens */
+    .hero-graphic {
+        height: 400px; /* Gives the graphic container a fixed structural home on mobile */
+        grid-template-rows: 1fr 1fr;
+    }
+
+    /* Adjust the overlapping Bauhaus circle position for mobile proportions */
+    .graphic-top::before {
+        width: 100px; /* Slightly smaller circle radius for mobile viewports */
+        height: 100px;
+        bottom: -35px; /* Re-centers overlapping point over the grid divider */
+        left: 30px;
+    }
+
+    /* 3. Grid Details System */
     .grid {
-        grid-template-columns: 1fr; /* Drops to a single vertical column on mobile */
+        grid-template-columns: 1fr; /* Drops info cards down to a single vertical column */
     }
     
     .card:nth-child(3) {
-        grid-column: span 1; /* Prevents stretching errors on mobile screens */
+        grid-column: span 1; /* Prevents stretching layout errors on narrow viewports */
     }
 
     /* Standardizes clean horizontal line dividers between all stacked mobile cards */
     .card:first-child {
         border-right: none;
     }
+    
     .card:not(:last-child) {
         border-bottom: var(--border-thick);
     }
 }
+
 /* ==========================================================================
    RESTORED DESIGN SYSTEM & TEXT STYLES (Paste at the very bottom)
    ========================================================================== */
