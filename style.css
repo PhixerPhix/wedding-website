@@ -190,28 +190,26 @@ del {
 .card:nth-child(3) {
     grid-column: span 2;
 }
-
+/* --- FIXED BAUHAUS CARD BORDERS --- */
 .card {
     background: var(--bg-cream);
     padding: 40px;
     text-align: left;
-    display: flex;         /* Added for height alignment */
-    flex-direction: column; /* Keeps card content stacked vertically */
-    height: 100%;          /* Forces matching height container bounds */
+    display: flex;         
+    flex-direction: column; 
+    height: 100%;          
 }
 
-/* Adds a vertical border line between the top 'When' and 'Where' cards only */
+/* 1. Left card (When) gets a right border to cleanly divide the column */
 .card:first-child {
     border-right: var(--border-thick);
 }
 
-/* Adds a crisp horizontal border line separating the top row from the bottom 'What' card */
+/* 2. Top row cards (When & Where) get a clean bottom border to divide rows */
 .card:nth-child(1), .card:nth-child(2) {
     border-bottom: var(--border-thick);
 }
 
-.card:not(:last-child) {
-    border-right: var(--border-thick);
 }
 .card h3 {
     font-family: 'Syne', sans-serif;
