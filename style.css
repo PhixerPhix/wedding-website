@@ -335,3 +335,35 @@ input:focus, select:focus, textarea:focus {
     color: #ffffff;
     background-color: #1d4ed8;
 }
+/* Section spacing inside cards */
+.card-section {
+    margin-bottom: 24px;
+}
+
+.card-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Small uppercase section headings */
+.card h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 8px 0;
+    color: #000000;
+}
+
+/* High-contrast list/shoutout text */
+.card .emphasis {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin: 12px 0;
+}
+
+/* Centered contribution performance line */
+.card .emphasis.centered {
+    text-align: center;
+    padding: 8px 0;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
