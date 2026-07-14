@@ -324,16 +324,14 @@ input:focus, select:focus, textarea:focus {
 }
 /* Bauhaus Link Styling */
 .card a {
-    color: #0000ff; /* Replace with your primary blue, red, or yellow */
+    color: #1d4ed8; /* Cobalt Blue */
     text-decoration: none;
     font-weight: bold;
-    border-bottom: 2px solid #0000ff;
-    transition: all 0.2s ease-in-out;
+    border-bottom: 2px solid #1d4ed8;
+    transition: all 0.15s ease-in-out;
 }
 
-/* Hover State - Swaps colors instantly for a sharp graphic feel */
 .card a:hover {
     color: #ffffff;
-    background-color: #0000ff;
-    border-bottom-color: transparent;
+    background-color: #1d4ed8;
 }
