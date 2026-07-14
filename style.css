@@ -322,48 +322,53 @@ input:focus, select:focus, textarea:focus {
         border-bottom: var(--border-thick);
     }
 }
-/* Bauhaus Link Styling */
+/* Bauhaus Link Styling - Updated to match your custom Blue variable */
 .card a {
-    color: #1d4ed8; /* Cobalt Blue */
+    color: var(--bh-blue); 
     text-decoration: none;
     font-weight: bold;
-    border-bottom: 2px solid #1d4ed8;
+    border-bottom: 2px solid var(--bh-blue);
     transition: all 0.15s ease-in-out;
 }
 
 .card a:hover {
-    color: #ffffff;
-    background-color: #1d4ed8;
+    color: var(--bg-cream);
+    background-color: var(--bh-blue);
 }
-/* Section spacing inside cards */
+
+/* --- WHAT BOX INTERNAL LAYOUT & SUB-HEADERS --- */
 .card-section {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
 }
 
 .card-section:last-child {
     margin-bottom: 0;
 }
 
-/* Small uppercase section headings */
+/* Large, uppercase section subheaders styled in Ochre Yellow */
 .card h4 {
-    font-size: 14px;
+    font-family: 'Syne', sans-serif;
+    font-size: 22px; 
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin: 0 0 8px 0;
-    color: #000000;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px 0;
+    color: var(--bh-yellow);
 }
 
 /* High-contrast list/shoutout text */
 .card .emphasis {
-    font-weight: bold;
-    letter-spacing: 0.5px;
+    font-weight: 800;
+    color: var(--bh-red); /* Pops text blocks out in vibrant primary red */
     margin: 12px 0;
 }
 
-/* Centered contribution performance line */
+/* Centered performance text container styling */
 .card .emphasis.centered {
     text-align: center;
-    padding: 8px 0;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
+    padding: 12px 0;
+    border-top: 2px solid var(--bh-black);
+    border-bottom: 2px solid var(--bh-black);
+    margin: 20px 0;
 }
+
