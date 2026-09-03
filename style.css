@@ -211,6 +211,7 @@ del {
     border-bottom: var(--border-thick);
 }
 
+/* --- CARD INNER TYPOGRAPHY --- */
 .card h3 {
     font-family: 'Syne', sans-serif;
     font-size: 2rem;
@@ -221,10 +222,10 @@ del {
 }
 
 .card p {
-    font-family: 'Syne', sans-serif; /* Upgraded detail content paragraphs to Syne font */
+    font-family: 'Syne', sans-serif; 
     font-size: 1.1rem;
     font-weight: 700;
-    text-transform: uppercase; /* Looks dramatically stronger in block capitals */
+    text-transform: uppercase; 
     letter-spacing: 0.5px;
     margin-bottom: 12px;
 }
