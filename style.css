@@ -243,6 +243,42 @@ del {
     margin-top: 10px;
 }
 
+/* --- WHAT SECTION SUB-CARDS & UTILITIES --- */
+.card-section {
+    margin-bottom: 25px;
+    padding-top: 15px;
+    border-top: 2px dashed var(--bh-black);
+}
+
+.card-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--bh-red);
+    font-weight: 800;
+}
+
+.card .emphasis {
+    color: var(--bh-blue);
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+.card .centered {
+    text-align: center;
+    background-color: var(--bh-black);
+    color: var(--bh-yellow);
+    padding: 8px;
+    display: block;
+}
+
 /* --- RSVP SECTIONS --- */
 .rsvp-section {
     padding: 100px 60px;
@@ -283,9 +319,9 @@ input[type="text"], input[type="email"], select, textarea {
     margin-bottom: 25px;
     border: 2px solid var(--bh-black);
     background-color: var(--bg-cream);
-    font-family: 'Syne', sans-serif; /* Changed from Space Grotesk */
-    font-weight: 700;                /* Makes user input look bold */
-    text-transform: uppercase;       /* Keeps input in block capitals */
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;                
+    text-transform: uppercase;       
     font-size: 1rem;
     border-radius: 0; 
 }
@@ -318,7 +354,7 @@ input:focus, select:focus, textarea:focus {
     font-size: 0.85em;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--bh-blue); /* Distinct color indicator for user reference info */
+    color: var(--bh-blue);
 }
 
 .radio-option {
@@ -332,13 +368,13 @@ input:focus, select:focus, textarea:focus {
     margin-right: 12px;
     width: 20px;
     height: 20px;
-    accent-color: var(--bh-red); /* Uses your primary red for checked states */
+    accent-color: var(--bh-red);
     cursor: pointer;
     border: 2px solid var(--bh-black);
 }
 
 .radio-option label {
-    margin-bottom: 0; /* Prevents parent baseline labels styling from adding extra spacing */
+    margin-bottom: 0;
     cursor: pointer;
     font-size: 1.1rem;
 }
@@ -352,28 +388,46 @@ input:focus, select:focus, textarea:focus {
 
 /* --- RESPONSIVE LAYOUT (Mobile adjustments) --- */
 @media (max-width: 768px) {
-    /* 1. Fix Hero section collapsing and text overflow */
     .hero {
-        height: auto; /* Allows the container to expand naturally with the text */
-        grid-template-columns: 1fr; /* Stacks layout elements vertically */
+        height: auto;
+        grid-template-columns: 1fr;
     }
 
     .hero-content {
         padding: 40px 20px;
         border-right: none;
-        border-bottom: var(--border-thick); /* Creates a crisp boundary line above graphic */
+        border-bottom: var(--border-thick);
     }
 
-    /* 2. Scale the geometric artwork cleanly on small screens */
     .hero-graphic {
-        height: 400px; /* Gives the graphic container a fixed structural home on mobile */
+        height: 400px;
         grid-template-rows: 1fr 1fr;
     }
 
-    /* Adjust the overlapping Bauhaus circle position for mobile proportions */
     .graphic-top::before {
-        width: 100px; /* Slightly smaller circle radius for mobile viewports */
+        width: 100px;
         height: 100px;
         bottom: -50px;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card:nth-child(3) {
+        grid-column: span 1;
+    }
+    
+    .card:first-child {
+        border-right: none;
+        border-bottom: var(--border-thick);
+    }
+    
+    .details, .rsvp-section {
+        padding: 60px 20px;
+    }
+    
+    .rsvp-form {
+        padding: 30px 20px;
     }
 }
