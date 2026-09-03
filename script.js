@@ -1,5 +1,5 @@
-// Target Wedding Date: 19 June 2027 at 15:00 (3:00 PM)
-// Note: Month index 5 represents June in JavaScript (0 = Jan, 1 = Feb)
+// Target Wedding Date: Saturday 3rd October 2026 at 15:00 (3:00 PM)
+// Note: Month index 9 represents October in JavaScript (0 = Jan, 1 = Feb ... 9 = Oct)
 const weddingDate = new Date(2026, 9, 3, 15, 0, 0).getTime();
 
 function updateCountdown() {
@@ -40,10 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const nameInput = document.getElementById("name");
             const emailInput = document.getElementById("email"); 
             const attendanceSelect = document.getElementById("attendance");
+            const cocktailSelect = document.getElementById("cocktail");
+            const contributionGroup = document.querySelector(".contribution-fieldset");
+            const contributionChecked = document.querySelector('input[name="contribution"]:checked');
+            
             let isValid = true;
 
-            // Clear old errors
+            // Clear old errors & restore default border colors
             document.querySelectorAll(".error-message").forEach(el => el.remove());
+            [nameInput, emailInput, attendanceSelect, cocktailSelect].forEach(el => {
+                if(el) el.style.borderColor = "var(--bh-black)";
+            });
 
             // 1. Validate Name
             if (!nameInput.value.trim()) {
@@ -64,6 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
             // 3. Validate Attendance
             if (!attendanceSelect.value) {
                 showError(attendanceSelect, "Please let us know if you can make it!");
+                isValid = false;
+            }
+
+            // 4. Validate Cocktail Choice (Placed above dietary)
+            if (!cocktailSelect.value) {
+                showError(cocktailSelect, "Pick a libation! What are you drinking?");
+                isValid = false;
+            }
+
+            // 5. Validate Contribution Radio Buttons
+            if (!contributionChecked) {
+                showError(contributionGroup, "Let us know if you want to jump on the mic!");
                 isValid = false;
             }
 
@@ -95,5 +114,9 @@ function showError(element, message) {
     error.style.marginBottom = "20px";
     
     element.insertAdjacentElement("afterend", error);
-    element.style.borderColor = "var(--bh-red)";
+    
+    // Check if the element is a fieldset box or standard dropdown line input
+    if (element.tagName !== "FIELDSET") {
+        element.style.borderColor = "var(--bh-red)";
+    }
 }
