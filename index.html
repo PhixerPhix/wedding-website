@@ -89,7 +89,7 @@ opposite 1 Cote House Lane, BS9 3UW </p>
 
     </section>
 
-     <!-- RSVP Section -->
+  <!-- RSVP Section -->
     <section id="rsvp" class="rsvp-section">
         <h2>You comin'?</h2>
         <p>Please reply ASAP</p>
@@ -108,10 +108,7 @@ opposite 1 Cote House Lane, BS9 3UW </p>
                 <option value="regretfully-declines">Womp Womp/No</option>
             </select>
 
-            <label for="dietary">Dietary Requirements / Allergies </label>
-            <textarea id="dietary" name="dietary" rows="3" placeholder="2nd cocktail if RSVP as a couple."></textarea>
-
-            <!-- Added Field 1: Cocktail Choice Dropdown -->
+            <!-- Cocktail Choice is now placed here, above Dietary Requirements -->
             <label for="cocktail">Cocktail Choice</label>
             <select id="cocktail" name="cocktail" required>
                 <option value="" disabled selected>Select your drink...</option>
@@ -120,7 +117,10 @@ opposite 1 Cote House Lane, BS9 3UW </p>
                 <option value="Hugo">C: Hugo (prosecco, elderflower liqueur, mint, lime)</option>
             </select>
 
-            <!-- Added Field 2: Contributions Radio Group -->
+            <label for="dietary">Dietary Requirements / Allergies</label>
+            <textarea id="dietary" name="dietary" rows="3" placeholder="None, Vegetarian, Nut allergy, etc."></textarea>
+
+            <!-- Contributions Radio Group -->
             <fieldset class="contribution-fieldset">
                 <legend>Would you like to make a contribution? <span class="legend-subtext">(See contributions section above)</span></legend>
                 <div class="radio-option">
