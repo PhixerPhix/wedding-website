@@ -247,11 +247,10 @@ del {
 .card-section {
     margin-bottom: 25px;
     padding-top: 15px;
-    border-top: 2px dashed var(--bh-black);
+    /* Border-top removed from here to clean up the layout lines */
 }
 
 .card-section:first-of-type {
-    border-top: none;
     padding-top: 0;
 }
 
