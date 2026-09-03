@@ -190,6 +190,7 @@ del {
 .card:nth-child(3) {
     grid-column: span 2;
 }
+
 /* --- FIXED BAUHAUS CARD BORDERS --- */
 .card {
     background: var(--bg-cream);
@@ -210,7 +211,6 @@ del {
     border-bottom: var(--border-thick);
 }
 
-}
 .card h3 {
     font-family: 'Syne', sans-serif;
     font-size: 2rem;
@@ -295,6 +295,53 @@ input:focus, select:focus, textarea:focus {
     border-color: var(--bh-red);
 }
 
+/* --- NEWLY ADDED FORM FIELDS STYLING --- */
+.contribution-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contribution-fieldset legend {
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: var(--bh-black);
+}
+
+.legend-subtext {
+    font-size: 0.85em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--bh-blue); /* Distinct color indicator for user reference info */
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--bh-red); /* Uses your primary red for checked states */
+    cursor: pointer;
+    border: 2px solid var(--bh-black);
+}
+
+.radio-option label {
+    margin-bottom: 0; /* Prevents parent baseline labels styling from adding extra spacing */
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
 .submit-btn {
     width: 100%;
     background-color: var(--bh-black);
@@ -326,112 +373,6 @@ input:focus, select:focus, textarea:focus {
     .graphic-top::before {
         width: 100px; /* Slightly smaller circle radius for mobile viewports */
         height: 100px;
-        bottom: -35px; /* Re-centers overlapping point over the grid divider */
-        left: 30px;
+        bottom: -50px;
     }
-
-    /* 3. Grid Details System */
-    .grid {
-        grid-template-columns: 1fr; /* Drops info cards down to a single vertical column */
-    }
-    
-    .card:nth-child(3) {
-        grid-column: span 1; /* Prevents stretching layout errors on narrow viewports */
-    }
-
-    /* Standardizes clean horizontal line dividers between all stacked mobile cards */
-    .card:first-child {
-        border-right: none;
-    }
-    
-    .card:not(:last-child) {
-        border-bottom: var(--border-thick);
-    }
-}
-
-/* ==========================================================================
-   RESTORED DESIGN SYSTEM & TEXT STYLES (Paste at the very bottom)
-   ========================================================================== */
-
-/* 1. Bauhaus Link Styling */
-.card a {
-    color: var(--bh-blue); 
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 2px solid var(--bh-blue);
-    transition: all 0.15s ease-in-out;
-}
-
-.card a:hover {
-    color: var(--bg-cream);
-    background-color: var(--bh-blue);
-}
-
-/* 2. Main Card Headers (When, Where, What) */
-.card h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 2rem;
-    text-transform: uppercase;
-    margin-bottom: 25px;
-    color: var(--bh-blue);
-    font-weight: 800;
-}
-
-/* 3. Card Paragraph Texts */
-.card p {
-    font-family: 'Syne', sans-serif; 
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase; 
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-}
-
-.card p strong {
-    color: var(--bh-red); 
-}
-
-.card p em {
-    font-style: normal;
-    color: var(--bh-yellow);
-    background-color: var(--bh-black);
-    padding: 3px 8px;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-/* 4. What Box Internal Layout & Sub-Headers */
-.card-section {
-    margin-bottom: 30px;
-}
-
-.card-section:last-child {
-    margin-bottom: 0;
-}
-
-/* Large, uppercase section subheaders styled in Ochre Yellow */
-.card h4 {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px; 
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 0 0 10px 0;
-    color: var(--bh-yellow);
-}
-
-/* High-contrast list/shoutout text */
-.card .emphasis {
-    font-weight: 800;
-    color: var(--bh-red); 
-    margin: 12px 0;
-}
-
-/* Centered performance text container styling */
-.card .emphasis.centered {
-    text-align: center;
-    padding: 12px 0;
-    border-top: 2px solid var(--bh-black);
-    border-bottom: 2px solid var(--bh-black);
-    margin: 20px 0;
 }
