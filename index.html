@@ -89,12 +89,12 @@ opposite 1 Cote House Lane, BS9 3UW </p>
 
     </section>
 
-    <!-- RSVP Section -->
+     <!-- RSVP Section -->
     <section id="rsvp" class="rsvp-section">
         <h2>You comin'?</h2>
-        <p>Please reply by 1st September 2026</p>
+        <p>Please reply ASAP</p>
         
-        <form action="https://formspree.io/f/xdaqnrkr" method="POST" class="rsvp-form">
+        <form action="https://formspree.io" method="POST" class="rsvp-form">
             <label for="name">Full Name(s) + children (including their age)</label>
             <input type="text" id="name" name="name" required placeholder="e.g. Jack & Sally Skellington">
 
@@ -110,6 +110,28 @@ opposite 1 Cote House Lane, BS9 3UW </p>
 
             <label for="dietary">Dietary Requirements / Allergies</label>
             <textarea id="dietary" name="dietary" rows="3" placeholder="None, Vegetarian, Nut allergy, etc."></textarea>
+
+            <!-- Added Field 1: Cocktail Choice Dropdown -->
+            <label for="cocktail">Cocktail Choice</label>
+            <select id="cocktail" name="cocktail" required>
+                <option value="" disabled selected>Select your drink...</option>
+                <option value="Mezcal Margarita">A: Mezcal Margarita (mezcal, Cointreau, lime)</option>
+                <option value="Negroni">B: Negroni (gin, Campari, red vermouth, orange)</option>
+                <option value="Hugo">C: Hugo (prosecco, elderflower liqueur, mint, lime)</option>
+            </select>
+
+            <!-- Added Field 2: Contributions Radio Group -->
+            <fieldset class="contribution-fieldset">
+                <legend>Would you like to make a contribution? <span class="legend-subtext">(See contributions section above)</span></legend>
+                <div class="radio-option">
+                    <input type="radio" id="contrib-no" name="contribution" value="God NO" required>
+                    <label for="contrib-no">God NO</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="contrib-yes" name="contribution" value="YES Lawd" required>
+                    <label for="contrib-yes">YES Lawd</label>
+                </div>
+            </fieldset>
 
             <button type="submit" class="btn submit-btn">Submit RSVP</button>
         </form>
